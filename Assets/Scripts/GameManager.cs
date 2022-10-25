@@ -43,15 +43,27 @@ public class GameManager : MonoBehaviour
             case GameState.gameplay:
                 Time.timeScale = 1;
                 uIMananger.GameplayCanvasOn();
-                if (Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.P))
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
                 {
                     gameState = GameState.pause;
+                }
+                if (Input.GetKey(KeyCode.U))
+                {
+                    gameState = GameState.win;
+                }
+                if (Input.GetKey(KeyCode.I))
+                {
+                    gameState = GameState.gameOver;
                 }
                 break;
 
             case GameState.pause:
                 Time.timeScale = 0;
                 uIMananger.PauseCanvasOn();
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+                {
+                    gameState = GameState.gameplay;
+                }
                 break;
 
             case GameState.credits:
@@ -71,6 +83,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void LoadSettings()
+    {
+        gameState = GameState.settings;
+    }
     public void Pause()
     {
         gameState = GameState.pause;
