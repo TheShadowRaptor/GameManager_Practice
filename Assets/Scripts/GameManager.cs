@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
 {
     public UIMananger uIMananger;
     public LevelMananger levelMananger;
+
+    GameObject playerObj;
+    FirstPersonController_Sam player;
     public enum GameState 
     {
         mainMenu,
@@ -28,20 +31,32 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player == null)
+        {
+            playerObj = GameObject.Find("Player");
+            player = playerObj.GetComponent<FirstPersonController_Sam>();
+        }
+
         switch (gameState)
         {
             case GameState.mainMenu:
-                Time.timeScale = 1;
+                Time.timeScale = 0;
+                player.cursorLocked = false;
+                player.canMove = false;
                 uIMananger.MainMenuCanvasOn();
                 break;
 
             case GameState.settings:
-                Time.timeScale = 1;
+                Time.timeScale = 0;
+                player.cursorLocked = false;
+                player.canMove = false;
                 uIMananger.SettingsCanvasOn();
                 break;
 
             case GameState.gameplay:
                 Time.timeScale = 1;
+                player.cursorLocked = true;
+                player.canMove = true;
                 uIMananger.GameplayCanvasOn();
                 if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
                 {
@@ -59,6 +74,8 @@ public class GameManager : MonoBehaviour
 
             case GameState.pause:
                 Time.timeScale = 0;
+                player.cursorLocked = false;
+                player.canMove = false;
                 uIMananger.PauseCanvasOn();
                 if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
                 {
@@ -68,16 +85,22 @@ public class GameManager : MonoBehaviour
 
             case GameState.credits:
                 Time.timeScale = 0;
+                player.cursorLocked = false;
+                player.canMove = false;
                 uIMananger.CreditsCanvasOn();
                 break;
 
             case GameState.gameOver:
                 Time.timeScale = 0;
+                player.cursorLocked = false;
+                player.canMove = false;
                 uIMananger.GameOverCanvasOn();
                 break;
 
             case GameState.win:
                 Time.timeScale = 0;
+                player.cursorLocked = false;
+                player.canMove = false;
                 uIMananger.WinCanvasOn();
                 break;
         }

@@ -266,6 +266,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 65488298847544609, guid: 7db91f1bc76dfef4bb9542985c1007de, type: 3}
+      propertyPath: walkBobAmount
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 65488298847544609, guid: 7db91f1bc76dfef4bb9542985c1007de, type: 3}
+      propertyPath: crouchBobSpeed
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 150203465876376087, guid: 7db91f1bc76dfef4bb9542985c1007de, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -324,7 +332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 526474079336260210, guid: 7db91f1bc76dfef4bb9542985c1007de, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -9.959412
+      value: -9.959351
       objectReference: {fileID: 0}
     - target: {fileID: 526474079491514865, guid: 7db91f1bc76dfef4bb9542985c1007de, type: 3}
       propertyPath: m_AnchorMax.x
