@@ -149,8 +149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 603dbbcab3e12cc4492ffca20bdc5924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canMove: 1
+  cursorLocked: 1
   canRun: 1
-  canJump: 1
+  canJump: 0
   canCrouch: 1
   canUseHeadbob: 1
   canSlideOnSlopes: 1
@@ -177,10 +179,10 @@ MonoBehaviour:
   timeToCrouch: 0.15
   crouchingCenter: {x: 0, y: 0.5, z: 0}
   standingCenter: {x: 0, y: 0, z: 0}
-  crouchBobSpeed: 8
+  crouchBobSpeed: 7
   crouchBobAmount: 0.05
   walkBobSpeed: 12
-  walkBobAmount: 0.065
+  walkBobAmount: 0.05
   runBobSpeed: 16
   runBobAmount: 0.1
   timeToZoom: 0.2

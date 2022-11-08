@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Managers")]
     public UIMananger uIMananger;
     public LevelMananger levelMananger;
 
+    // GameObjects/Scripts 
     GameObject playerObj;
     FirstPersonController_Sam player;
+
+    GameObject spawnPointObj;
+    PlayerSpawnPoint spawnPoint;
+
+    bool respawn = false;
     public enum GameState 
     {
         mainMenu,
@@ -31,11 +38,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player == null)
-        {
-            playerObj = GameObject.Find("Player");
-            player = playerObj.GetComponent<FirstPersonController_Sam>();
-        }
+        SearchForGameObjects();
 
         switch (gameState)
         {
@@ -69,6 +72,11 @@ public class GameManager : MonoBehaviour
                 if (Input.GetKey(KeyCode.I))
                 {
                     gameState = GameState.gameOver;
+                }
+                if (respawn)
+                {
+                    RespawnPlayer();
+                    respawn = false;
                 }
                 break;
 
@@ -106,6 +114,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void SearchForGameObjects()
+    {
+        if (playerObj == null)
+        {
+            playerObj = GameObject.Find("Player");
+            player = playerObj.GetComponent<FirstPersonController_Sam>();
+        }
+
+        // OnlySearch when gamestate = gameplay
+        if (gameState == GameState.gameplay)
+        {
+            if (spawnPointObj == null)
+            {
+                spawnPointObj = GameObject.Find("PlayerSpawnPoint");
+                spawnPoint = spawnPointObj.GetComponent<PlayerSpawnPoint>();
+            }
+        }
+    }
+
     public void LoadSettings()
     {
         gameState = GameState.settings;
@@ -121,8 +148,9 @@ public class GameManager : MonoBehaviour
 
     public void LoadGameplay()
     {
-        levelMananger.LoadLevel();
+        levelMananger.LoadLevel(1);
         gameState = GameState.gameplay;
+        respawn = true;
     }
 
     public void LoadMainMenu()
@@ -134,5 +162,9 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         levelMananger.ExitGame();
+    }
+    public void RespawnPlayer()
+    {
+        spawnPoint.RespawnPlayer();
     }
 }
