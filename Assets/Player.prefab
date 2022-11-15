@@ -186,7 +186,7 @@ MonoBehaviour:
   runBobSpeed: 16
   runBobAmount: 0.1
   timeToZoom: 0.2
-  zoomFOV: 30
+  zoomFOV: 20
   baseStepSpeed: 0.5
   crouchStepMultiplier: 1.5
   RunStepMultiplier: 0.6
@@ -213,7 +213,7 @@ MonoBehaviour:
   interactionDistance: 2
   interactionLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 136
 --- !u!82 &3217817271307602234
 AudioSource:
   m_ObjectHideFlags: 0

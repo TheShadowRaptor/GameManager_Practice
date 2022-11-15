@@ -75,8 +75,8 @@ public class Outline : MonoBehaviour {
   private List<ListVector3> bakeValues = new List<ListVector3>();
 
   private Renderer[] renderers;
-  private Material outlineMaskMaterial;
-  private Material outlineFillMaterial;
+  public Material outlineMaskMaterial;
+  public Material outlineFillMaterial;
 
   private bool needsUpdate;
 
@@ -84,13 +84,6 @@ public class Outline : MonoBehaviour {
 
     // Cache renderers
     renderers = GetComponentsInChildren<Renderer>();
-
-    // Instantiate outline materials
-    outlineMaskMaterial = Instantiate(Resources.Load<Material>(@"Materials/OutlineMask"));
-    outlineFillMaterial = Instantiate(Resources.Load<Material>(@"Materials/OutlineFill"));
-
-    outlineMaskMaterial.name = "OutlineMask (Instance)";
-    outlineFillMaterial.name = "OutlineFill (Instance)";
 
     // Retrieve or generate smooth normals
     LoadSmoothNormals();
@@ -152,9 +145,6 @@ public class Outline : MonoBehaviour {
 
   void OnDestroy() {
 
-    // Destroy material instances
-    Destroy(outlineMaskMaterial);
-    Destroy(outlineFillMaterial);
   }
 
   void Bake() {

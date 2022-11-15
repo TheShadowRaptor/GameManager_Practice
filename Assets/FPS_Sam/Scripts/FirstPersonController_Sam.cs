@@ -251,6 +251,7 @@ public class FirstPersonController_Sam : MonoBehaviour
 
     private void HandleInteractionCheck()
     {
+        Debug.DrawRay(playerCamera.transform.position, playerCamera.transform.forward, Color.red);
         if (Physics.Raycast(playerCamera.ViewportPointToRay(interactionRayPoint), out RaycastHit hit, interactionDistance))
         {
             if (hit.collider.gameObject.layer == 7 && (currentInteractable == null || hit.collider.gameObject.GetInstanceID() != currentInteractable.GetInstanceID() ) )

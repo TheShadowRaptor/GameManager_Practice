@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     GameObject spawnPointObj;
     PlayerSpawnPoint spawnPoint;
 
-    bool respawn = false;
+    public bool respawn = false;
     public enum GameState 
     {
         mainMenu,
