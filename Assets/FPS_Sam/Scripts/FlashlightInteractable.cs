@@ -43,9 +43,10 @@ public class FlashlightInteractable : Interactable
 
     public override void OnInteract()
     {
+        // Place Flashlight in players hand
         gameObject.transform.parent = playerCamera.transform;
         gameObject.transform.localRotation = Quaternion.Euler(0, -90, 0);
-        gameObject.transform.localPosition = new Vector3(-0.4f, -0.5f, 0.3f);
+        gameObject.transform.localPosition = new Vector3(-0.3f, -0.6f, 0.3f);
         player.holdingFlashlight = true;
     }
 

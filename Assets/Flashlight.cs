@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Flashlight : MonoBehaviour
 {
     [Header("Flashlight Components")]
     public GameObject flashlightOn;
     public GameObject flashlightOff;
+    public Slider batterySlider;
 
     [Header("PowerStats")]
     public float batteryPower = 100;
     public float drainSpeed = 5;
 
-    bool BatteryIsEmpty = false;
+    bool batteryIsEmpty = false;
     GameObject playerObj;
     FirstPersonController_Sam player;
 
@@ -31,27 +33,26 @@ public class Flashlight : MonoBehaviour
             player = playerObj.GetComponent<FirstPersonController_Sam>();
         }
 
+        DisplayUI();
+
         if (player.holdingFlashlight == true)
         {
             player.HandleFlashlightInput(true);
 
             CheckBattery();
-            if (BatteryIsEmpty == false)
+            if (batteryIsEmpty == false)
             {
                 if (player.flashlightSwitchOn)
                 {
-                    flashlightOn.SetActive(true);
-                    flashlightOff.SetActive(false);
-                    BatteryDrain(true);
+                    LightOn();
                 }
 
                 else if (player.flashlightSwitchOn == false)
                 {
-                    flashlightOn.SetActive(false);
-                    flashlightOff.SetActive(true);
-                    BatteryDrain(false);
+                    LightOff();
                 }
             }
+            else LightOff();
         }
     }
 
@@ -70,10 +71,30 @@ public class Flashlight : MonoBehaviour
             batteryPower = 100;
         }
 
-        else if (batteryPower < 0)
+        if (batteryPower < 0)
         {
             batteryPower = 0;
-            BatteryIsEmpty = true;
+            batteryIsEmpty = true;
         }
+        else batteryIsEmpty = false;
+    }
+
+    void DisplayUI()
+    {
+        batterySlider.value = batteryPower;
+    }
+
+    void LightOn()
+    {
+        flashlightOn.SetActive(true);
+        flashlightOff.SetActive(false);
+        BatteryDrain(true);
+    }
+
+    void LightOff()
+    {
+        flashlightOn.SetActive(false);
+        flashlightOff.SetActive(true);
+        BatteryDrain(false);
     }
 }
