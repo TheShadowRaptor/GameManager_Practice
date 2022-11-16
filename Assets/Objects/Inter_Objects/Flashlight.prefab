@@ -48,6 +48,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ccdbd46f5aa74f4cb22b2f2113e4d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flashlightOn: {fileID: 6494562732970656681}
+  flashlightOff: {fileID: 5474471854467757725}
+  batteryPower: 100
+  drainSpeed: 5
 --- !u!114 &3161809011281406211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,5 +234,15 @@ PrefabInstance:
 --- !u!4 &1364225650456394582 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2921907611598267532, guid: 27177c40eb79ae44f9a379b5f65ec815, type: 3}
+  m_PrefabInstance: {fileID: 4206933238309904346}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5474471854467757725 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8186203096956954951, guid: 27177c40eb79ae44f9a379b5f65ec815, type: 3}
+  m_PrefabInstance: {fileID: 4206933238309904346}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6494562732970656681 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6936481416692243571, guid: 27177c40eb79ae44f9a379b5f65ec815, type: 3}
   m_PrefabInstance: {fileID: 4206933238309904346}
   m_PrefabAsset: {fileID: 0}

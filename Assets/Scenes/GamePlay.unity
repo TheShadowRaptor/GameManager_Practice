@@ -159,7 +159,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122040084}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.20042, z: 0}
+  m_LocalPosition: {x: 0, y: 3.90039, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -179,7 +179,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 10
+  m_Range: 24.38906
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -6328,6 +6328,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4206933238839880201, guid: b6fefd60f61e8ad4292d57ffca8bcec0, type: 3}
   m_PrefabInstance: {fileID: 4206933237622657970}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1666268600 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3944691586445658210, guid: b6fefd60f61e8ad4292d57ffca8bcec0, type: 3}
+  m_PrefabInstance: {fileID: 4206933237622657970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ccdbd46f5aa74f4cb22b2f2113e4d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &2003207902
 Mesh:
   m_ObjectHideFlags: 0
@@ -6777,6 +6788,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1565379911006098027, guid: b6fefd60f61e8ad4292d57ffca8bcec0, type: 3}
+      propertyPath: outlineWidth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565379911006098027, guid: b6fefd60f61e8ad4292d57ffca8bcec0, type: 3}
+      propertyPath: outlineColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565379911006098027, guid: b6fefd60f61e8ad4292d57ffca8bcec0, type: 3}
       propertyPath: outlineFillMaterial
       value: 
       objectReference: {fileID: 2100000, guid: da737b845e8b80f4683c188438b77493, type: 2}
@@ -6792,6 +6811,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 325092290}
+    - target: {fileID: 3161809011281406211, guid: b6fefd60f61e8ad4292d57ffca8bcec0, type: 3}
+      propertyPath: _flashLight
+      value: 
+      objectReference: {fileID: 1666268600}
     - target: {fileID: 4206933238839880200, guid: b6fefd60f61e8ad4292d57ffca8bcec0, type: 3}
       propertyPath: m_Name
       value: Flashlight
@@ -6850,7 +6873,7 @@ PrefabInstance:
       objectReference: {fileID: 325092290}
     - target: {fileID: 4993385980450138557, guid: b6fefd60f61e8ad4292d57ffca8bcec0, type: 3}
       propertyPath: m_VersionIndex
-      value: 3454
+      value: 3478
       objectReference: {fileID: 0}
     - target: {fileID: 5155347320593708170, guid: b6fefd60f61e8ad4292d57ffca8bcec0, type: 3}
       propertyPath: m_Mesh
@@ -6894,7 +6917,7 @@ PrefabInstance:
       objectReference: {fileID: 1202824998}
     - target: {fileID: 9134143665494586977, guid: b6fefd60f61e8ad4292d57ffca8bcec0, type: 3}
       propertyPath: m_VersionIndex
-      value: 1855
+      value: 1879
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7768018314073311782, guid: b6fefd60f61e8ad4292d57ffca8bcec0, type: 3}

@@ -9,6 +9,10 @@ public class FirstPersonController_Sam : MonoBehaviour
     public bool canMove = true;
 
     public bool cursorLocked = true;
+
+    public bool holdingFlashlight = false;
+
+    public bool flashlightSwitchOn = false;
     private bool isRunning => canRun && Input.GetKey(runKey);
     private bool shouldJump => Input.GetKeyDown(jumpKey) && characterController.isGrounded;
     private bool shouldCrouch => Input.GetKeyDown(crouchKey) && !duringCrouchAnimation && characterController.isGrounded;
@@ -31,6 +35,7 @@ public class FirstPersonController_Sam : MonoBehaviour
     [SerializeField] private KeyCode crouchKey = KeyCode.LeftControl;
     [SerializeField] private KeyCode zoomKey = KeyCode.Mouse1;
     [SerializeField] private KeyCode interactKey = KeyCode.Mouse0;
+    [SerializeField] private KeyCode flashlightKey = KeyCode.F;
 
     [Header("Move Settings")]
     [SerializeField] private float walkSpeed = 5.0f;
@@ -385,9 +390,19 @@ public class FirstPersonController_Sam : MonoBehaviour
         zoomRoutine = null;
     }
 
+    public void HandleFlashlightInput(bool active)
+    {
+        if (active)
+        {
+            if (Input.GetKeyDown(flashlightKey) && flashlightSwitchOn == false)
+            {
+                flashlightSwitchOn = true;
+            }
 
-
-
-
-
+            else if (Input.GetKeyDown(flashlightKey) && flashlightSwitchOn)
+            {
+                flashlightSwitchOn = false;
+            }
+        }
+    }
 }
