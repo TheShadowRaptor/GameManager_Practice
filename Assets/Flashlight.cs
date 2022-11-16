@@ -66,17 +66,14 @@ public class Flashlight : MonoBehaviour
 
     void CheckBattery()
     {
-        if (batteryPower > 100)
-        {
-            batteryPower = 100;
-        }
+        if (batteryPower > 100) batteryPower = 100;
 
         if (batteryPower < 0)
         {
             batteryPower = 0;
             batteryIsEmpty = true;
         }
-        else batteryIsEmpty = false;
+        else if (batteryPower > 0) batteryIsEmpty = false;
     }
 
     void DisplayUI()

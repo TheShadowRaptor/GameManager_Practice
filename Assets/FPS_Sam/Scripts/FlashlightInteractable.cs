@@ -5,6 +5,7 @@ using UnityEngine;
 public class FlashlightInteractable : Interactable
 {
     public Outline _outline;
+    public GameObject clickPrompt;
     GameObject playerCamera;
     GameObject playerObj;
     FirstPersonController_Sam player;
@@ -18,7 +19,8 @@ public class FlashlightInteractable : Interactable
        _outline = GetComponent<Outline>();
 
         gameObject.layer = LayerMask.NameToLayer("Interactable");
-  
+        clickPrompt.SetActive(false);
+
     }
 
     private void Update()
@@ -37,7 +39,8 @@ public class FlashlightInteractable : Interactable
 
     public override void OnFocus()
     {
-        print("Looking at " + gameObject.name);
+        //print("Looking at " + gameObject.name);
+        clickPrompt.SetActive(true);
         _outline.enabled = true;
     }
 
@@ -46,13 +49,14 @@ public class FlashlightInteractable : Interactable
         // Place Flashlight in players hand
         gameObject.transform.parent = playerCamera.transform;
         gameObject.transform.localRotation = Quaternion.Euler(0, -90, 0);
-        gameObject.transform.localPosition = new Vector3(-0.3f, -0.6f, 0.3f);
+        gameObject.transform.localPosition = new Vector3(-0.33f, -0.6f, 0.63f);
         player.holdingFlashlight = true;
     }
 
     public override void OnLoseFocus()
     {
-       _outline.enabled = false;
-       print("Stopped Looking at " + gameObject.name);
+        clickPrompt.SetActive(false);
+        _outline.enabled = false;
+       //print("Stopped Looking at " + gameObject.name);
     }
 }
