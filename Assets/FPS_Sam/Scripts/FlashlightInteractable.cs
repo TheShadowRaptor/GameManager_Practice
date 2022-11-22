@@ -51,6 +51,8 @@ public class FlashlightInteractable : Interactable
         gameObject.transform.localRotation = Quaternion.Euler(0, -90, 0);
         gameObject.transform.localPosition = new Vector3(-0.33f, -0.6f, 0.63f);
         player.holdingFlashlight = true;
+        clickPrompt.SetActive(false);
+        _outline.enabled = false;
     }
 
     public override void OnLoseFocus()

@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 3217817271307602232}
   - component: {fileID: 3217817271307602231}
   - component: {fileID: 3217817271307602234}
+  - component: {fileID: 8450613738220863147}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -151,6 +152,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMove: 1
   cursorLocked: 1
+  holdingFlashlight: 0
+  flashlightSwitchOn: 0
   canRun: 1
   canJump: 0
   canCrouch: 1
@@ -164,6 +167,7 @@ MonoBehaviour:
   crouchKey: 306
   zoomKey: 324
   interactKey: 323
+  flashlightKey: 102
   walkSpeed: 5
   runSpeed: 10
   crouchSpeed: 2.5
@@ -310,3 +314,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8450613738220863147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3217817271307602230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b1c0502caa307a4bb9fd6e74b4941f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
+  stamina: 100
+  healthBar: {fileID: 0}
