@@ -5575,6 +5575,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3217817271307602231, guid: b988737ccd3ac5f4ea62a9d81b6bd751, type: 3}
+      propertyPath: playerStats
+      value: 
+      objectReference: {fileID: 6415886654037824189}
+    - target: {fileID: 3217817271307602231, guid: b988737ccd3ac5f4ea62a9d81b6bd751, type: 3}
+      propertyPath: damageVignette
+      value: 
+      objectReference: {fileID: 3921443653983605531}
+    - target: {fileID: 3217817271307602231, guid: b988737ccd3ac5f4ea62a9d81b6bd751, type: 3}
+      propertyPath: damageVignetteObj
+      value: 
+      objectReference: {fileID: 4444948594419226191}
     - target: {fileID: 3217817271307602233, guid: b988737ccd3ac5f4ea62a9d81b6bd751, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -5630,3 +5642,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3217817271307602233, guid: b988737ccd3ac5f4ea62a9d81b6bd751, type: 3}
   m_PrefabInstance: {fileID: 3192861373585992726}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6415886654037824189 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8450613738220863147, guid: b988737ccd3ac5f4ea62a9d81b6bd751, type: 3}
+  m_PrefabInstance: {fileID: 3192861373585992726}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b1c0502caa307a4bb9fd6e74b4941f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

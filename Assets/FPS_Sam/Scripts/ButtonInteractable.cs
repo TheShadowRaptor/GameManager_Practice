@@ -10,7 +10,7 @@ public class ButtonInteractable : Interactable
 
     public Outline _outline;
     public Animator animator;
-    public PlayerStats playerStats;
+    public FirstPersonController_Sam player;
 
     public GameObject damageGraphicObj;
     public Image damageGraphic;
@@ -38,7 +38,7 @@ public class ButtonInteractable : Interactable
         if (playerObj == null)
         {
             playerObj = GameObject.Find("Player");
-            playerStats = playerObj.GetComponent<PlayerStats>();
+            player = playerObj.GetComponent<FirstPersonController_Sam>();
         }
 
         if (animationOn)
@@ -76,7 +76,13 @@ public class ButtonInteractable : Interactable
 
     public void DamagePlayer()
     {
-        playerStats.health -= 10;
+        player.TakeDamage(10);
         damageGraphic.enabled = true;
+        LeanTween.value(damageGraphicObj, 1, 0, 1).setOnUpdate((float val) =>
+        {
+            Color c = damageGraphic.color;
+            c.a = val;
+            damageGraphic.color = c;
+        }); 
     }
 }

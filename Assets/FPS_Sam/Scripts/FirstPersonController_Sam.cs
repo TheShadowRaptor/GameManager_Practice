@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // Created by Sam Robichaud NSCC-Truro, Based on tutorial by (Comp - 3 Interactive)  * with modifications *
 
 public class FirstPersonController_Sam : MonoBehaviour
 {
+    public PlayerStats playerStats;
+    public GameObject damageVignetteObj;
+    public Image damageVignette;
+
     public bool canMove = true;
 
     public bool cursorLocked = true;
@@ -16,6 +21,7 @@ public class FirstPersonController_Sam : MonoBehaviour
     private bool isRunning => canRun && Input.GetKey(runKey);
     private bool shouldJump => Input.GetKeyDown(jumpKey) && characterController.isGrounded;
     private bool shouldCrouch => Input.GetKeyDown(crouchKey) && !duringCrouchAnimation && characterController.isGrounded;
+
 
     #region Settings
 
@@ -404,5 +410,17 @@ public class FirstPersonController_Sam : MonoBehaviour
                 flashlightSwitchOn = false;
             }
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        playerStats.health -= damage;
+        damageVignette.enabled = true;
+        LeanTween.value(damageVignetteObj, 1, 0, 0.5f).setOnUpdate((float val) =>
+        {
+            Color c = damageVignette.color;
+            c.a = val;
+            damageVignette.color = c;
+        });
     }
 }
