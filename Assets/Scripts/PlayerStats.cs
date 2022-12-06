@@ -19,9 +19,5 @@ public class PlayerStats : MonoBehaviour
     void Update()
     {
         healthBar.SetHealth(health);
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            health -= 20;
-        }
     }
 }
